@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Bob's Page </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="blue">
+    <link rel="manifest" href="manifest.json">
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="shortcut icon" href="favicon.ico">
+</head>
+<body>
+  <div>
+    <p>
+      Bob's Firebase Game Log In
+    </p>
+    
+    <form id="register">
+            <fieldset>
+                <legend>Register</legend>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="reg_email" />
+                <label for="password">Password</label>
+                <input type="password" name="password" id="reg_password" />
+                <input type="submit" value="Register" />
+            </fieldset>
+        </form>
+        <form id="login">
+            <fieldset>
+                <legend>Login</legend>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="log_email" />
+                <label for="password">Password</label>
+                <input type="password" name="password" id="log_password" />
+                <input type="submit" value="Login" />
+            </fieldset>
+        </form>
+        <form id="logout">
+            <fieldset>
+                <legend>Logout</legend>
+                <input type="submit" value="Logout" />
+            </fieldset>
+        </form>
+
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/5.8.4/firebase.js"></script>
+  <script>
+  // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyCpi8AGrA89HusEO_2lL8x54bLSv9CaRaw",
+    authDomain: "sneddybob-game-project.firebaseapp.com",
+    databaseURL: "https://sneddybob-game-project.firebaseio.com",
+    projectId: "sneddybob-game-project",
+    storageBucket: "sneddybob-game-project.appspot.com",
+    messagingSenderId: "495946795833"
+    };
+    firebase.initializeApp(config);
+    </script>
+
+
+
+    
+  
+</body>
+</html>
