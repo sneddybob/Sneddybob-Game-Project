@@ -1,12 +1,13 @@
 var body = document.querySelector("body");
-
+var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 var u;
 
-var colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+function initializeColor(){
+    window.firebase.database().ref('/' + u.uid + '/color').once('value').then(function(snapshot){
+        body.style.backgroundColor = snapshot.val();
+    });
+}
 
-function initializeColor(){window.firebase.database().ref('/' + u.uid + 'color').once('value').then(function(snapshot){
-    body.style.backgroundColor = snapshot.val();
-});};
 
 body.addEventListener("click", function(e){
     var currentColor = body.style.backgroundColor;
@@ -20,14 +21,12 @@ body.addEventListener("click", function(e){
     window.firebase.database().ref('/' + u.uid + '/color').set(newColorName);
     body.style.backgroundColor = newColorName;
 });
-    
 
 firebase.auth().onAuthStateChanged(function(user) {
-    if (user){
-            u = user;
-            initializeColor();
-    }
-    else{
-        window.location.href = "./auth.html";
+    if (user) {
+       u = user;
+       initializeColor();
+    } else{
+        window.location.href = "./auth.html"
     }
 });
