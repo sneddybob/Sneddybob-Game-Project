@@ -1,0 +1,46 @@
+*{
+    font-family: 'Nunito Sans', sans-serif;
+    font-display: auto;
+}
+body{
+    margin: 0;
+    height: 80vh;
+    width: 90vw;
+    
+}
+
+.keyboard{
+    display: flex;
+    justify-content: space-around;
+}
+
+.key{
+    border: 1px solid grey;
+    text-align: center;
+    width: calc(100vw/13);
+    height: 40vh;
+}
+.sharpKey{
+    border: 1px solid grey;
+    text-align: center;
+    
+    width: calc(50vw/13);
+    height: calc(50vw/13);
+
+}
+
+.pressed{
+    background-image: radial-gradient(rgba(255, 0, 0, 0.863), white);
+    animation-name: pressedkey;
+    animation-duration: 1000ms;
+    
+}
+
+@keyframes pressedkey{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
