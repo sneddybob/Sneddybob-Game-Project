@@ -1,0 +1,21 @@
+{ 
+       "short_name": "Noisemaker",
+    "name": "Bob's Noisemaker",
+    "icons": [
+      {
+        "src": "icon.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "wrigley512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/noisemaker/index.html",
+    "background_color": "blue",
+    "display": "standalone",
+    "scope": "/noisemaker/",
+    "theme_color": "blue"
+  }
