@@ -81,14 +81,17 @@ var currentXFrame = 0;
 
 function redraw(){
     context.clearRect(0, 0, canvas.width, canvas.height);
-    var skeleton = new Image();
-    skeleton.src = "Zelda-Inv.png";
     var landscape = new Image();
     landscape.src = "landscape.png";
     
+    var skeleton = new Image();
+    skeleton.src = "Zelda-Inv.png";
+    
+    
     skeleton.addEventListener("load", function(){
+        context.drawImage(landscape, 80,0);
         context.drawImage(skeleton, sx, sy, 64, 64, dx, dy, 64, 64);
-        context.drawImage(landscape, 0,0);
+        
 
     });
     if(u){
@@ -99,40 +102,135 @@ function redraw(){
 
 window.addEventListener("keydown", function(e){
     currentXFrame++;
+    //dy=390;
     if(currentXFrame > totalXFrames){
         currentXFrame = 0;
     }
-    
+    console.log(e);
+    console.log(dx);
     switch(e.key){
-        case 'ArrowUp':{
-            dy -= 10;
-            sy = 0 * frameSize;
+        case 'q':{
+            dx = 50;
+            dy = 390;
             sx = currentXFrame * frameSize;
             // console.log("up");
             break;
         }
         case 'ArrowLeft':{
+           if(dx>50 && dx<1231){
+                dx -= 10;
+                sy = 0 * frameSize;
+                sx = currentXFrame * frameSize;
+                console.log(dx);
+                }
+          
+                if(dx> 930 && dx<1220){
+                    dx -= 10;
+                    dy -=1
+                    sy = 0 * frameSize;
+                    sx = currentXFrame * frameSize;
+                    console.log(dx + "this also");
+                    }
+                    
+                if(dx>620 && dx<930){
+                    dx -= 10;
+                    dy +=3.5;
+                    sy = 0 * frameSize;
+                    sx = currentXFrame * frameSize;
+                                console.log(dx + "this hit");
+                                console.log(dy);
+                                }        
+            
+            if(dx>520 && dx<620){
+                    dx -= 10;
+                    dy -=1;
+                    sy = 0 * frameSize;
+                    sx = currentXFrame * frameSize;
+                    console.log(dx);
+                    console.log(dy);
+                    }
+            if(dx>320 && dx<520){
+                        dx -= 10;
+                        
+                        sy = 0 * frameSize;
+                        sx = currentXFrame * frameSize;
+                        console.log(dx);
+                        console.log(dy);
+            }
+
+            if(dx>50 && dx<320){
             dx -= 10;
-            sy = 0 * frameSize;
-            sx = currentXFrame * frameSize;
-            // console.log("left");
+            dy+=1;
+                        sy = 0 * frameSize;
+                        sx = currentXFrame * frameSize;
+                        console.log(dx + "that's hitting");
+                        console.log(dy);
+            }
+            if(dx<49){
+                dx -= 0;
+                
+                sy = 0 * frameSize;
+                sx = currentXFrame * frameSize;
+                console.log(dx+ "does that hit?");
+                console.log(dy);
+                }
+          
             break;
         }
-        case 'ArrowDown':{
-            dy += 10;
-            sy = 2 * frameSize;
+        case 'x':{
+            
+            sy = 5 * frameSize;
             sx = currentXFrame * frameSize;
-            // console.log("down");
+
+            //animation: swing 0.5s steps(9)
+            
             break;
         }
         case 'ArrowRight':{
+            if(dx<320){
+                dx += 10;
+                dy -=1;
+                sy = 1 * frameSize;
+                sx = currentXFrame * frameSize;
+                console.log(dx + "this");
+                console.log(dy);
+                }
+            if(dx>520 && dx<610){
+                    dx += 10;
+                    dy +=1;
+                    sy = 1 * frameSize;
+                    sx = currentXFrame * frameSize;
+                    console.log(dx + "this hit");
+                    console.log(dy);
+                    }
+            if(dx>620 && dx<930){
             dx += 10;
+            dy +=-3.5;
             sy = 1 * frameSize;
             sx = currentXFrame * frameSize;
-            // console.log("right");
+                        console.log(dx + "this hit");
+                        console.log(dy);
+                        }        
+            if(dx> 930 && dx<1220){
+            dx += 10;
+            dy +=1
+            sy = 1 * frameSize;
+            sx = currentXFrame * frameSize;
+            console.log(dx + "this also");
+            }
+            if(dx<1221){
+                dx += 10;
+                
+                sy = 1 * frameSize;
+                sx = currentXFrame * frameSize;
+                console.log(dx + "this also");
+             }
+           
             break;
         }
     }
+   // @keyframes swing{
+    //    100% {} }
     var skeleton = {
         sx: sx, 
         sy: sy, 
